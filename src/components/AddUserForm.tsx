@@ -1,5 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
+import { useUserStore } from '@/store/userStore';
+// import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 export default function AddUserForm() {
@@ -8,28 +11,45 @@ export default function AddUserForm() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
+//   const router = useRouter();
+
+  const { addUser } = useUserStore();
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError('');
 
-    const res = await fetch('/api/users', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, email }),
-    });
-
-    if (!res.ok) {
-      const errorData = await res.json();
-      setError(errorData.error || 'Failed to create user');
-      setLoading(false);
-      return;
+    try {
+        await addUser(username, email);
+        setUsername('');
+        setEmail('');
+        setLoading(false);
+        alert('User created!');
+        // router.refresh();
+    } catch (errorData: any) {
+        setError(errorData.error || 'Failed to create user');
+        setLoading(false);
+        return;
     }
 
-    setUsername('');
-    setEmail('');
-    setLoading(false);
-    alert('User created!');
+    // const res = await fetch('/api/users', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({ username, email }),
+    // });
+
+    // if (!res.ok) {
+    //   const errorData = await res.json();
+    //   setError(errorData.error || 'Failed to create user');
+    //   setLoading(false);
+    //   return;
+    // }
+
+    // setUsername('');
+    // setEmail('');
+    // setLoading(false);
+    // alert('User created!');
   };
 
   return (
