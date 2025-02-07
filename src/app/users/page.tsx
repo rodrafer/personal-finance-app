@@ -1,5 +1,5 @@
 import AddUserForm from '@/components/AddUserForm'
-import UsersList from '@/components/UsersList'
+// import UsersList from '@/components/UsersList'
 
 export interface User {
   _id: string
@@ -23,14 +23,14 @@ export default async function UsersPage() {
     <main className="p-6">
       <h1 className="text-2xl font-bold mb-4">Users List</h1>
       <AddUserForm />
-      {/* <ul className="mt-6 space-y-2">
+      <ul className="mt-6 space-y-2">
         {users.map((user: User) => (
           <li key={user._id} className="border p-2 rounded">
             {user.username} ({user.email})
           </li>
         ))}
-      </ul> */}
-      <UsersList initialUsers={users}/>
+      </ul>
+      {/* <UsersList initialUsers={users}/> */}
     </main>
   )
 }

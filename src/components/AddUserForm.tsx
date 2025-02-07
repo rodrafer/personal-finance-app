@@ -2,7 +2,7 @@
 'use client';
 
 import { useUserStore } from '@/store/userStore';
-// import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 export default function AddUserForm() {
@@ -11,7 +11,7 @@ export default function AddUserForm() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-//   const router = useRouter();
+  const router = useRouter();
 
   const { addUser } = useUserStore();
 
@@ -26,7 +26,7 @@ export default function AddUserForm() {
         setEmail('');
         setLoading(false);
         alert('User created!');
-        // router.refresh();
+        router.refresh();
     } catch (errorData: any) {
         setError(errorData.error || 'Failed to create user');
         setLoading(false);
