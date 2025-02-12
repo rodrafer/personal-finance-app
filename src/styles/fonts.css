@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'PublicSans';
+  src: url('/public/assets/personal-finance-app/starter-code/assets/fonts/PublicSans-VariableFont_wght.ttf')
+    format('ttf');
+  font-weight: 100 900; /* Supports dynamic weights */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PublicSans';
+  src: url('/public/assets/personal-finance-app/starter-code/assets/fonts/PublicSans-Italic-VariableFont_wght.ttf')
+    format('ttf');
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'PublicSans';
+  src: url('/public/assets/personal-finance-app/starter-code/assets/fonts/static/PublicSans-Regular.ttf')
+    format('ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PublicSans';
+  src: url('/public/assets/personal-finance-app/starter-code/assets/fonts/static/PublicSans-Bold.ttf')
+    format('ttf');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Set as default font */
+html {
+  font-family: 'PublicSans', sans-serif;
+}
