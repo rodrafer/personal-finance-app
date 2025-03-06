@@ -13,7 +13,7 @@ export default {
         foreground: 'var(--foreground)',
       },
       fontFamily: {
-        sans: ['PublicSans', 'sans-serif'],
+        sans: ['PublicSans', 'Arial', 'Helvetica', 'sans-serif'],
       },
       fontWeight: {
         extraLight: '100',
